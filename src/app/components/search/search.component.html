@@ -1,10 +1,15 @@
-<div>
-  <input value="{{searchText}}" (keyup)="onKey($event)" placeholder="Enter City">
-
-  <a class="button">One</a>
-
-  <button (click)="search()">Search</button>
-  <button (click)="clear()">Clear</button>
-  <br/><br/>
-  <app-current [data]="current"></app-current>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+        <input class="form-control" value="{{searchText}}" (keyup)="onKey($event)" placeholder="Enter City">
+    </div>
+    <div class="col-sm-4">
+        <button class="btn btn-primary" (click)="search()" [disabled]="!searchText">Search</button>
+        <button class="btn btn-secondary" (click)="clear()" [disabled]="!searchText">Clear</button>
+    </div>
+  </div>
+  <div class="row" *ngIf="current.name">
+      <app-current [data]="current"></app-current>
+      <button (click)="save()">Save</button>
+  </div>
 </div>

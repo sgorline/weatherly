@@ -9,12 +9,13 @@ import { Current } from '../../models/current.model'
 })
 export class CurrentComponent implements OnInit {
 
-  constructor(private weatherService: WeatherService) {}
+  constructor(private weatherService: WeatherService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   @Input('data')
   current = new Current()
+  
   fiveDay = {list: []}
 
   getFiveDay() {

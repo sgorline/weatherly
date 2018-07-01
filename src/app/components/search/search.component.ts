@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
-import {WeatherService} from '../../services/weather.service'
+import { WeatherService } from '../../services/weather.service'
+import { LocalStorageService } from '../../services/local-storage.service'
 import { Current } from '../../models/current.model'
 
 @Component({
@@ -9,9 +10,9 @@ import { Current } from '../../models/current.model'
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private weatherService: WeatherService) {}
+  constructor(private weatherService: WeatherService, private localStorageService: LocalStorageService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   searchText = 'Egg Harbor'
   current = new Current()
@@ -29,6 +30,10 @@ export class SearchComponent implements OnInit {
 
   clear() {
     this.searchText = ''
+  }
+
+  save() {
+    this.localStorageService.saveFavorite(this.current)
   }
 
 }
