@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
+import { Current } from '../models/current.model'
+import { FiveDay } from '../models/five-day.model'
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +14,11 @@ export class WeatherService {
   appId: string = '90bb7fa425e38887b9f900e74c565b75'
 
   getCurrent(city: string) {
-    return this.http.get(this.baseUrl + 'weather?q=' + city + '&units=imperial&APPID=' + this.appId)
+    return this.http.get<Current>(this.baseUrl + 'weather?q=' + city + '&units=imperial&APPID=' + this.appId)
   }
 
   getFiveDay(id: number) {
-    return this.http.get(this.baseUrl + 'forecast?id=' + id + '&units=imperial&APPID=' + this.appId)
+    return this.http.get<FiveDay[]>(this.baseUrl + 'forecast?id=' + id + '&units=imperial&APPID=' + this.appId)
   }
 
 }

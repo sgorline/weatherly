@@ -7,11 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SavedComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
-  
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

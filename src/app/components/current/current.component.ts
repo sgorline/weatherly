@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core'
-import {WeatherService} from '../../services/weather.service'
+import { WeatherService } from '../../services/weather.service'
+import { Current } from '../../models/current.model'
 
 @Component({
   selector: 'app-current',
@@ -8,23 +9,18 @@ import {WeatherService} from '../../services/weather.service'
 })
 export class CurrentComponent implements OnInit {
 
-  constructor(private weatherService: WeatherService) { }
+  constructor(private weatherService: WeatherService) {}
 
+  ngOnInit() {}
+
+  @Input('data')
+  current = new Current()
   fiveDay = {list: []}
 
-  @Input() data: {id: 0}
-
-
-  ngOnInit() {
-
-
-
-  }
-
   getFiveDay() {
-    this.weatherService.getFiveDay(this.data.id)
+    this.weatherService.getFiveDay(this.current.id)
       .subscribe( data => {
-        
+        console.log(this.current)
       })
   }
 
