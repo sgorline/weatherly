@@ -13,10 +13,6 @@ export class LocalStorageService {
     return !localStorageItem ? [] : localStorageItem
   }
 
-  saveFavorite(favorite: Current) {
-    return localStorage.setItem('favorites', JSON.stringify(favorite))
-  }
-
   saveFavorites(favorites: Array<Current>) {
     return localStorage.setItem('favorites', JSON.stringify(favorites))
   }

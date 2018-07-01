@@ -14,6 +14,11 @@ export class SavedComponent implements OnInit {
 
   favorites = this.localStorageService.getFavorites()
 
-
+  remove(fav) {
+    this.favorites = this.favorites.filter(obj => obj !== fav)
+    // just brute forcing this for now
+    this.localStorageService.deleteFavorite()
+    this.localStorageService.saveFavorites(this.favorites)
+  }
 
 }

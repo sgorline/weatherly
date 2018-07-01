@@ -9,7 +9,13 @@
     </div>
   </div>
   <div class="row" *ngIf="current.name">
-      <app-current [data]="current"></app-current>
-      <button (click)="save()">Save</button>
+        <div class="col-sm-8">
+            <app-current [data]="current"></app-current>
+        </div>
+        <div class="col-sm-4">
+            <button class="btn btn-success" (click)="save()" [disabled]="favorites.length >= 5">Save</button>
+        </div>
+      
+      
   </div>
 </div>

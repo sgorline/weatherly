@@ -1,12 +1,3 @@
 <div>
-  <a (click)="getFiveDay()">{{current.name}}</a> - {{current.main.temp | number: '2.0-0'}}&deg; and {{current.weather[0].main}}
-
-  {{fiveDay}}
-
-  <ul>
-    <li *ngFor="let item of fiveDay.list; let i = index">
-      {{i}} {{item}}
-    </li>
-  </ul>
-
+  <a href="#" (click)="getFiveDay()">{{current.name}}</a> - {{current.main.temp | number: '2.0-0'}}&deg; and {{current.weather[0].main}}
 </div>

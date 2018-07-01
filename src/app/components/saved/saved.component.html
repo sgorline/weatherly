@@ -1,7 +1,9 @@
-<div>
-    <ul>
-        <li *ngFor="let fav of favorites; let i = index">
-          {{i}} {{item}}
-        </li>
-      </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div *ngFor="let fav of favorites; let i = index">
+          <app-current [data]="fav"></app-current> <button class="btn btn-danger" (click)="remove(fav)">Remove</button>
+      </div>
+    </div>
+  </div>
 </div>

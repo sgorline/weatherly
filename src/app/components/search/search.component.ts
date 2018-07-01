@@ -16,6 +16,7 @@ export class SearchComponent implements OnInit {
 
   searchText = 'Egg Harbor'
   current = new Current()
+  favorites = this.localStorageService.getFavorites()
 
   onKey(event: any) {
     this.searchText = event.target.value
@@ -30,10 +31,14 @@ export class SearchComponent implements OnInit {
 
   clear() {
     this.searchText = ''
+    this.current = new Current()
   }
 
   save() {
-    this.localStorageService.saveFavorite(this.current)
+    this.favorites.push(this.current)
+    // just brute forcing this for now
+    this.localStorageService.deleteFavorite()
+    this.localStorageService.saveFavorites(this.favorites)
   }
 
 }
