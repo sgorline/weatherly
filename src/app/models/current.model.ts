@@ -12,4 +12,5 @@ export class Current {
     }
     name: string
     weather: Array<{}>
+    
 }

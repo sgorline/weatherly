@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { Current } from '../models/current.model'
+import { Saved } from '../models/saved.model'
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class LocalStorageService {
     return !localStorageItem ? [] : localStorageItem
   }
 
-  saveFavorites(favorites: Array<Current>) {
+  saveFavorites(favorites: Array<Saved>) {
     return localStorage.setItem('favorites', JSON.stringify(favorites))
   }
 

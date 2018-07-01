@@ -1,9 +1,10 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm">
-      <div *ngFor="let fav of favorites; let i = index">
-          <app-current [data]="fav"></app-current> <button class="btn btn-danger" (click)="remove(fav)">Remove</button>
-      </div>
+<div class="container favorite">
+  <div class="row" *ngFor="let cur of currents; let i = index">
+    <div class="col-sm-8">
+      <app-current class="pull-left" [data]="cur"></app-current>
+    </div>
+    <div class="col-sm-4">
+      <button class="btn btn-sm btn-danger" (click)="remove(cur)">Remove</button>
     </div>
   </div>
 </div>

@@ -1,3 +1,4 @@
 <div>
-  <a href="#" (click)="getFiveDay()">{{current.name}}</a> - {{current.main.temp | number: '2.0-0'}}&deg; and {{current.weather[0].main}}
+    <img [src]='"http://openweathermap.org/img/w/"+current.weather[0].icon+".png"'>
+    <a href="#" (click)="getFiveDay()">{{current.name}}</a> - {{current.main.temp | number: '2.0-0'}}&deg; {{current.weather[0].description}}
 </div>

@@ -1,21 +1,22 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-8">
-        <input class="form-control" value="{{searchText}}" (keyup)="onKey($event)" placeholder="Enter City">
+    <div class="row">
+        <div class="col-sm-8">
+            <input class="form-control" value="{{searchText}}" (keyup)="onKey($event)" placeholder="Enter City">
+        </div>
+        <div class="col-sm-4">
+            <button class="btn btn-secondary" (click)="clear()" [disabled]="!searchText">Clear</button>
+            <button class="btn btn-primary" (click)="search()" [disabled]="!searchText">Search</button>
+        </div>
     </div>
-    <div class="col-sm-4">
-        <button class="btn btn-primary" (click)="search()" [disabled]="!searchText">Search</button>
-        <button class="btn btn-secondary" (click)="clear()" [disabled]="!searchText">Clear</button>
-    </div>
-  </div>
-  <div class="row" *ngIf="current.name">
+</div>
+<h4 *ngIf="current.name">Current Weather</h4>
+<div class="container" *ngIf="current.name">
+    <div class="row">
         <div class="col-sm-8">
             <app-current [data]="current"></app-current>
         </div>
         <div class="col-sm-4">
             <button class="btn btn-success" (click)="save()" [disabled]="favorites.length >= 5">Save</button>
         </div>
-      
-      
-  </div>
+    </div>
 </div>

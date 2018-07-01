@@ -13,7 +13,11 @@ export class WeatherService {
   baseUrl: string = 'http://api.openweathermap.org/data/2.5/'
   appId: string = '90bb7fa425e38887b9f900e74c565b75'
 
-  getCurrent(city: string) {
+  getCurrentById(id: number) {
+    return this.http.get<Current>(this.baseUrl + 'weather?id=' + id + '&units=imperial&APPID=' + this.appId)
+  }
+
+  getCurrentSearch(city: string) {
     return this.http.get<Current>(this.baseUrl + 'weather?q=' + city + '&units=imperial&APPID=' + this.appId)
   }
 

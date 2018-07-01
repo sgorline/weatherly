@@ -21,7 +21,7 @@ export class CurrentComponent implements OnInit {
   getFiveDay() {
     this.weatherService.getFiveDay(this.current.id)
       .subscribe( data => {
-        console.log(this.current)
+        console.log(data)
       })
   }
 

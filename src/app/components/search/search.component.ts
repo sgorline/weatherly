@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { WeatherService } from '../../services/weather.service'
 import { LocalStorageService } from '../../services/local-storage.service'
 import { Current } from '../../models/current.model'
+import { Saved } from '../../models/saved.model'
 
 @Component({
   selector: 'app-search',
@@ -14,7 +15,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() { }
 
-  searchText = 'Egg Harbor'
+  searchText = ''
   current = new Current()
   favorites = this.localStorageService.getFavorites()
 
@@ -23,7 +24,7 @@ export class SearchComponent implements OnInit {
   }
 
   search() {
-    this.weatherService.getCurrent(this.searchText)
+    this.weatherService.getCurrentSearch(this.searchText)
       .subscribe( data => {
         this.current = data
       })
@@ -35,7 +36,11 @@ export class SearchComponent implements OnInit {
   }
 
   save() {
-    this.favorites.push(this.current)
+    let fav = new Saved()
+    // do this via constructor?
+    fav.id = this.current.id
+    fav.name = this.current.name
+    this.favorites.push(fav)
     // just brute forcing this for now
     this.localStorageService.deleteFavorite()
     this.localStorageService.saveFavorites(this.favorites)
