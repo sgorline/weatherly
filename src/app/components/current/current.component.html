@@ -1,0 +1,12 @@
+<div>
+  <a (click)="getFiveDay()">{{data.name}}</a> - {{data.main.temp | number: '2.0-0'}}&deg; and {{data.weather[0].main}}
+
+  {{fiveDay}}
+
+  <ul>
+    <li *ngFor="let item of fiveDay.list; let i = index">
+      {{i}} {{item}}
+    </li>
+  </ul>
+
+</div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import {WeatherService} from '../weather.service'
+import {WeatherService} from '../../services/weather.service'
 
 @Component({
   selector: 'app-search',
@@ -11,7 +11,8 @@ export class SearchComponent implements OnInit {
   constructor(private weatherService: WeatherService) { }
 
   searchText = 'Egg Harbor'
-  current
+
+  current = {}
 
   ngOnInit() {
 
@@ -25,11 +26,11 @@ export class SearchComponent implements OnInit {
     this.weatherService.getCurrent(this.searchText)
       .subscribe( data => {
         this.current = data
-      });
+      })
   }
 
   clear() {
-    this.searchText = '';
+    this.searchText = ''
   }
 
 }
