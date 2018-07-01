@@ -1,19 +1,7 @@
-
-
-
-
-
-<div style="margin-bottom:2em;">
-
-    
-
-  <input value="{{searchText}}" (keyup)="onKey($event)">
-
-
+<div>
+  <input value="{{searchText}}" (keyup)="onKey($event)" placeholder="Enter City">
   <button (click)="search()">Search</button>
   <button (click)="clear()">Clear</button>
-  <br/>
-  <app-current city-name=""></app-current>
-  <button>Add to Favorites</button>
-
+  <br/><br/>
+  <app-current [data]="current"></app-current>
 </div>

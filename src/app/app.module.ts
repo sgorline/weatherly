@@ -1,11 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser'
+import { NgModule } from '@angular/core'
+import { HttpClientModule } from '@angular/common/http'
 
-import { AppComponent } from './app.component';
-import { SearchComponent } from './search/search.component';
-import { SavedComponent } from './saved/saved.component';
-import { CurrentComponent } from './current/current.component';
-import { FiveDayComponent } from './five-day/five-day.component';
+import { AppComponent } from './app.component'
+import { SearchComponent } from './search/search.component'
+import { SavedComponent } from './saved/saved.component'
+import { CurrentComponent } from './current/current.component'
+import { FiveDayComponent } from './five-day/five-day.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FiveDayComponent } from './five-day/five-day.component';
     FiveDayComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

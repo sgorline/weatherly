@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
+import { Component, OnInit } from '@angular/core'
+import {WeatherService} from '../weather.service'
 
 @Component({
   selector: 'app-search',
@@ -8,23 +8,24 @@ import {NgForm} from '@angular/forms';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private weatherService: WeatherService) { }
 
-  searchText = 'test'
+  searchText = 'Egg Harbor'
+  current
 
   ngOnInit() {
 
-
-    
   }
 
   onKey(event: any) {
-    console.log(this.searchText)
-    this.searchText = event.target.value;
+    this.searchText = event.target.value
   }
 
   search() {
-    console.log(this.searchText)
+    this.weatherService.getCurrent(this.searchText)
+      .subscribe( data => {
+        this.current = data
+      });
   }
 
   clear() {
