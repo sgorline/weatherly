@@ -1,10 +1,10 @@
 <h4>Search</h4>
 <div class="container">
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-7">
             <input class="form-control" value="{{searchText}}" (keyup)="onKey($event)" placeholder="Enter City">
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-5 text-right">
             <button class="btn btn-secondary" (click)="clear()" [disabled]="!searchText">Clear</button>
             <button class="btn btn-primary" (click)="search()" [disabled]="!searchText">Search</button>
         </div>
@@ -13,10 +13,10 @@
 <h4 *ngIf="current.name">Current Weather</h4>
 <div class="container" *ngIf="current.name">
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-9 text-left">
             <app-current [data]="current"></app-current>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3 text-right">
             <button class="btn btn-success" (click)="save()" [disabled]="favorites.length >= 5">Save</button>
         </div>
     </div>

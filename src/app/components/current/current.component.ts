@@ -16,12 +16,12 @@ export class CurrentComponent implements OnInit {
   @Input('data')
   current = new Current()
   
-  fiveDay = {list: []}
+  fiveDay = {}
 
   getFiveDay() {
     this.weatherService.getFiveDay(this.current.id)
       .subscribe( data => {
-        console.log(data)
+        this.fiveDay = data
       })
   }
 

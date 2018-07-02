@@ -18,6 +18,7 @@ a:hover {
 
 .btn {
   margin-left: .25rem;
+  vertical-align: middle;
 }
 
 .btn:disabled {
@@ -64,19 +65,13 @@ body {
   max-width: 42em;
 }
 
-.favorite {
-  padding: 0;
-}
-
-.favorite > .row {
-  border-bottom-color: rgba(255, 255, 255, .25);
-  border-bottom-width: 1px;
-  border-bottom-style: dashed;
-  padding: 8px;
-}
-
 app-current {
   float: left;
+}
+
+app-current > .five-day {
+  font-size: .9rem;
+  height: 2rem;
 }
 
 /*

@@ -6,15 +6,13 @@ import { AppComponent } from './app.component'
 import { SearchComponent } from './components/search/search.component'
 import { SavedComponent } from './components/saved/saved.component'
 import { CurrentComponent } from './components/current/current.component'
-import { FiveDayComponent } from './components/five-day/five-day.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     SavedComponent,
-    CurrentComponent,
-    FiveDayComponent
+    CurrentComponent
   ],
   imports: [
     BrowserModule,
