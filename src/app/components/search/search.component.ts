@@ -13,7 +13,11 @@ export class SearchComponent implements OnInit {
 
   constructor(private weatherService: WeatherService, private localStorageService: LocalStorageService) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.localStorageService.change.subscribe(favsUpdated => {
+      this.favorites = this.localStorageService.getFavorites()
+    });
+  }
 
   searchText = ''
   current = new Current()

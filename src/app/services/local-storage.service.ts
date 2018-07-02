@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { Injectable, Output, EventEmitter } from '@angular/core'
 import { Saved } from '../models/saved.model'
 
 @Injectable({
@@ -8,16 +8,23 @@ export class LocalStorageService {
 
   constructor() { }
 
+  @Output()
+  change: EventEmitter<boolean> = new EventEmitter();
+
+  favsUpdated = false;
+
   getFavorites() {
     let localStorageItem = JSON.parse(localStorage.getItem('favorites'))
     return !localStorageItem ? [] : localStorageItem
   }
 
-  saveFavorites(favorites: Array<Saved>) {
-    return localStorage.setItem('favorites', JSON.stringify(favorites))
+  saveFavorites(favorites: Array<Saved>):void {
+    localStorage.setItem('favorites', JSON.stringify(favorites))
+    this.favsUpdated = true
+    this.change.emit(this.favsUpdated)
   }
 
-  deleteFavorite() {
+  deleteFavorite():void {
     localStorage.setItem('favorites', null)
   }
   

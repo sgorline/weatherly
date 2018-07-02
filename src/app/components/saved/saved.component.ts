@@ -11,26 +11,34 @@ export class SavedComponent implements OnInit {
 
   constructor(private localStorageService: LocalStorageService, private weatherService: WeatherService) { }
 
-  ngOnInit() { 
-    this.favorites = this.localStorageService.getFavorites()
-    this.favorites.forEach(item => {
-      this.search(item.id)
+  ngOnInit() {
+    this.load()
+    this.localStorageService.change.subscribe(favsUpdated => {
+      // just reloading everything for now
+      this.load()
     });
   }
-
   favorites = []
   currents = []
 
+  load() {
+    this.currents.length = 0
+    this.favorites = this.localStorageService.getFavorites()
+    this.favorites.forEach(item => {
+      this.search(item.id)
+    })
+  }
+
   search(id: number) {
     this.weatherService.getCurrentById(id)
-      .subscribe( data => {
+      .subscribe(data => {
         this.currents.push(data)
       })
   }
 
   remove(cur) {
     // better way than all oif these?
-    let fav =  this.favorites.filter(x => x.id == cur.id)[0];
+    let fav = this.favorites.filter(x => x.id == cur.id)[0];
     this.favorites = this.favorites.filter(obj => obj !== fav)
     this.currents = this.currents.filter(obj => obj !== cur)
     // just brute forcing this for now
