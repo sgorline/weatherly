@@ -17,12 +17,16 @@ export class CurrentComponent implements OnInit {
   current = new Current()
   
   fiveDay = {}
+  visible = false
 
   getFiveDay() {
-    this.weatherService.getFiveDay(this.current.id)
+    this.visible = !this.visible
+    if (this.visible) {
+      this.weatherService.getFiveDay(this.current.id)
       .subscribe( data => {
         this.fiveDay = data
       })
+    }
   }
 
 }
